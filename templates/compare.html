@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPL Analysis</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #5c95ff, #444444);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 36px;
+            margin-top: 10vh;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            max-width: 800px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: #444444;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: center;
+            width: 350px;
+        }
+
+        .option:hover {
+            background-color: #f5f5f5;
+            transform: scale(1.05);
+        }
+
+        .option i {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>IPL Analysis</h1>
+    <div class="container">
+        <div class="options">
+            <a class="option" href="/Four-Players">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                Top 5 Players - Based on Fours
+            </a>
+            <a class="option" href="/topsixes">
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                Top 5 Players - Based on Sixes
+            </a>
+            <a class="option" href="/compareplayer">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                Compare Players - Batsmen
+            </a>
+            <a class="option" href="/comparebowling">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                Compare Players - Bowlers
+            </a>
+            <a class="option" href="/topWickets">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                Top 5 Bowlers - Based on Wickets
+            </a>
+            <a class="option" href="/playeranalysis">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                Individual Player Performance - Batting
+            </a>
+            <a class="option" href="/Indbowling">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                Individual Player Performance - Bowling
+            </a>
+        </div>
+    </div>
+</body>
+</html>

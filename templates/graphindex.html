@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top 5 Players - Bar Graph</title>
+    <style>
+        body {
+            background-image: url('background.jpg');  /* Replace 'background.jpg' with your background image */
+            background-size: cover;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            color: #a85454;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .dropdown-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dropdown-label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #FFFFFF;
+        }
+
+        .dropdown-select {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .graph-container {
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Top 5 Players - Based on Fours</h1>
+    
+    <div class="dropdown-container">
+        <label class="dropdown-label" for="select-year">Select Year:</label>
+        <form id="select-year-form" method="POST" action="/Four-Players">
+            <select id="select-year" class="dropdown-select" name="select-year" onchange="submitForm()">
+                <option value="2021" {% if default_year == 2021 %}selected{% endif %}>2021</option>
+                <option value="2022" {% if default_year == 2022 %}selected{% endif %}>2022</option>
+                <option value="2023" {% if default_year == 2023 %}selected{% endif %}>2023</option>
+            </select>
+        </form>
+    </div>
+    
+    {% if graph %}
+        <div class="graph-container">
+            <img src="data:image/png;base64,{{ graph }}" alt="Bar Graph">
+        </div>
+    {% else %}
+        <div class="error-message">Please select a valid year.</div>
+    {% endif %}
+    
+    <script>
+        function submitForm() {
+            document.getElementById("select-year-form").submit();
+        }
+    </script>
+</body>
+</html>

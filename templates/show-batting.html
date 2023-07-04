@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPL Batting Data</title>
+    <style>
+        body {
+            background-color: #000000;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        th {
+            background-color: #444444;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #ffcc00;">IPL Batting Data</h1>
+    <table>
+        <tr>
+            <th>Position</th>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Matches</th>
+            <th>Innings</th>
+            <th>Runs</th>
+            <th>Strike Rate</th>
+            <th>Fours</th>
+            <th>Sixes</th>
+            <th>Year</th>
+        </tr>
+        {% for player in data %}
+        <tr>
+            <td>{{ player['Pos'] }}</td>
+            <td>{{ player['Player'] }}</td>
+            <td>{{ player['Team'] }}</td>
+            <td>{{ player['Matches'] }}</td>
+            <td>{{ player['Inn'] }}</td>
+            <td>{{ player['Runs'] }}</td>
+            <td>{{ player['Strike Rate'] }}</td>
+            <td>{{ player['Fours'] }}</td>
+            <td>{{ player['Sixes'] }}</td>
+            <td>{{ player['Year'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

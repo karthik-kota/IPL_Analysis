@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compare Batting Statistics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .dropdown {
+            margin-bottom: 20px;
+        }
+
+        .submit {
+            text-align: center;
+        }
+
+        .plot-image {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Compare Batting Statistics</h1>
+    <div class="container">
+        <form method="POST" action="/compareplayer">
+            <div class="dropdown">
+                <label for="dropdown1">Select Player 1:</label>
+                <select id="dropdown1" name="dropdown1">
+                    {% for player in player_names %}
+                        <option value="{{ player }}">{{ player }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="dropdown">
+                <label for="dropdown2">Select Player 2:</label>
+                <select id="dropdown2" name="dropdown2">
+                    {% for player in player_names %}
+                        <option value="{{ player }}">{{ player }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Compare">
+            </div>
+        </form>
+
+        {% if plot_image %}
+            <div class="plot-image">
+                <img src="data:image/png;base64,{{ plot_image }}" alt="Batting Comparison">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Score of Players in Each Year</title>
+    <style>
+        body {
+            background-image: url('background.jpg');  /* Replace 'background.jpg' with your background image */
+            background-size: cover;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            color: #a85454;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .search-label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #FFFFFF;
+        }
+
+        .search-input {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .graph-container {
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Score of Player in Each Year</h1>
+    
+    <div class="search-container">
+        <label class="search-label" for="search-player">Search Player:</label>
+        <form id="search-form" method="POST" action="/playeranalysis">
+            <select id="search-player" class="search-input" name="search-player" onchange="submitForm()">
+                {% for player in player_names %}
+                    <option value="{{ player }}" {% if player == selected_player %}selected{% endif %}>{{ player }}</option>
+                {% endfor %}
+            </select>
+        </form>
+    </div>
+    
+    {% if graph %}
+        <div class="graph-container">
+            <img src="data:image/png;base64,{{ graph }}" alt="Bar Graph">
+        </div>
+    {% else %}
+        <div class="error-message">No data available for the selected player.</div>
+    {% endif %}
+    
+    <script>
+        function submitForm() {
+            document.getElementById("search-form").submit();
+        }
+    </script>
+</body>
+</html>
